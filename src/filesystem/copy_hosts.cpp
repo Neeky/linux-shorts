@@ -19,13 +19,14 @@
 
 int main(int argc, char **argv)
 {
-    // 一次复制一个字符
+    // 一次复制一个字符，每一个字符都需要一个系统调用，所以这里会极大的影响性能
     char c;
     int in, out;
 
     // 打开文件
     in = open("/etc/hosts", O_RDONLY);
     out = open("/tmp/hosts", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+
     // buffer 可以是一个数组、也可以是一个字符
     while (read(in, &c, 1) == 1)
     {
