@@ -10,6 +10,7 @@ add_executable(linux-shorts-fs-write src/filesystem/wirte.cpp)
 add_executable(linux-shorts-fs-read src/filesystem/read.cpp)
 add_executable(linux-shorts-fs-copy-host src/filesystem/copy_hosts.cpp)
 add_executable(linux-shorts-fopen src/filesystem/fopen.cpp)
+add_executable(linux-shorts-getoption001 src/terminal/getoption.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
