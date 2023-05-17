@@ -6,6 +6,7 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
+add_executable(linux-shorts-times src/times/time.cpp)
 add_executable(linux-shorts-printevn src/envs/printenv.cpp)
 add_executable(linux-shorts-envs src/envs/envs.cpp)
 add_executable(linux-shorts-fs-write src/filesystem/wirte.cpp)
