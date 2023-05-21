@@ -7,6 +7,7 @@ enable_testing()
 
 add_executable(linux-shorts main.cpp)
 add_executable(linux-shorts-uid src/uid/uid.cpp)
+add_executable(linux-shorts-times-timezone src/times/timezone.cpp)
 add_executable(linux-shorts-times-tmpfile src/tmpfile/tmpnam.cpp)
 add_executable(linux-shorts-times-localtime src/times/localtime.cpp)
 add_executable(linux-shorts-times-gmtime src/times/gmtime.cpp)
