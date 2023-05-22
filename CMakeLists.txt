@@ -6,6 +6,7 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
+add_executable(linux-shortsresources-limits src/resources/limits.cpp)
 add_executable(linux-shorts-uid src/uid/uid.cpp)
 add_executable(linux-shorts-times-timeofday src/times/gettimeofday.cpp)
 add_executable(linux-shorts-times-timezone src/times/timezone.cpp)
