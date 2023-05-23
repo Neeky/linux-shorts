@@ -33,9 +33,7 @@ int main()
     struct rusage r_usage;
     struct rlimit r_limit;
     int priority;
-    puts("enter woker");
     worker(32);
-    puts("exit woker");
     getrusage(RUSAGE_SELF, &r_usage);
     printf("cpu usage: User = %ld.%06ld, System = %ld.%06ld \n",
            r_usage.ru_utime.tv_sec, r_usage.ru_utime.tv_usec,
