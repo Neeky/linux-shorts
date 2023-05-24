@@ -6,6 +6,7 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
+add_executable(linux-shorts-mallocs-malloc src/mallocs/malloc.cpp)
 add_executable(linux-shorts-logs-perror src/logs/perror.cpp)
 add_executable(linux-shorts-resources-limits src/resources/limits.cpp)
 add_executable(linux-shorts-uid src/uid/uid.cpp)
