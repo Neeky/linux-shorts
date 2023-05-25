@@ -6,6 +6,9 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
+
+add_executable(linux-shorts-pthreads-point_start_start src/pthreads/point_start_start.cpp)
+add_executable(linux-shorts-pthreads-pthread src/pthreads/pthread.cpp)
 add_executable(linux-shorts-mallocs-malloc src/mallocs/malloc.cpp)
 add_executable(linux-shorts-logs-perror src/logs/perror.cpp)
 add_executable(linux-shorts-resources-limits src/resources/limits.cpp)
