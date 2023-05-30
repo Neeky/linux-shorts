@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <errno.h>
 
 int main(int argc, char **argv)
 {
@@ -23,7 +24,8 @@ int main(int argc, char **argv)
     result = connect(socketfd, (struct sockaddr *)&address, len);
     if (result == -1)
     {
-        perror("connect server socket failed. \n");
+        printf("errno: %d", errno);
+        perror("connect server socket failed ");
         exit(EXIT_FAILURE);
     }
 
