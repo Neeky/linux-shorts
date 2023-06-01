@@ -1,37 +1,53 @@
-#include <sys/types.h>
+#include <arpa/inet.h> // inet_addr()
+#include <netdb.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h> // bzero()
 #include <sys/socket.h>
-#include <cstdio>
-#include <cstdlib>
-#include <unistd.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <errno.h>
+#include <unistd.h> // read(), write(), close()
+#define SA struct sockaddr
 
-int main(int argc, char **argv)
+int main()
 {
-    int socketfd;
-    struct sockaddr_in address;
-    int len;
-    int result;
-    char ch = 'A';
+    int sockfd, connfd;
+    struct sockaddr_in servaddr, cli;
 
-    socketfd = socket(AF_INET, SOCK_STREAM, 0);
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = inet_addr("127.0.0.1");
-    address.sin_port = 9875;
-    len = sizeof(address);
-
-    result = connect(socketfd, (struct sockaddr *)&address, len);
-    if (result == -1)
+    // socket create and verification
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd == -1)
     {
-        printf("errno: %d", errno);
-        perror("connect server socket failed ");
-        exit(EXIT_FAILURE);
+        printf("socket creation failed...\n");
+        exit(0);
     }
+    else
+        printf("Socket successfully created..\n");
+    // bzero(&servaddr, sizeof(servaddr));
 
-    write(socketfd, &ch, 1);
-    read(socketfd, &ch, 1);
-    printf("recived ch from server %c \n", ch);
-    close(socketfd);
-    return 0;
+    // assign IP, PORT
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    servaddr.sin_port = htons(9875);
+
+    // connect the client socket to server socket
+    if (connect(sockfd, (SA *)&servaddr, sizeof(servaddr)) != 0)
+    {
+        printf("connection with the server failed...\n");
+        exit(0);
+    }
+    else
+        printf("connected to the server..\n");
+
+    // function for chat
+    char buff[2];
+    buff[0] = 'A';
+    buff[1] = '\0';
+    printf("send char '%c' to the server..\n", buff[0]);
+    write(sockfd, buff, 1);
+
+    read(sockfd, buff, 1);
+
+    printf("got char '%c' from the server..\n", buff[0]);
+    // close the socket
+    close(sockfd);
 }
