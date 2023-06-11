@@ -6,6 +6,7 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
+add_executable(linux-shorts-sockets-client-002 src/sockets/client-002.cpp)
 add_executable(linux-shorts-sockets-client src/sockets/client.cpp)
 add_executable(linux-shorts-pthreads-parralle-cancel src/pthreads/parralle-cancel.cpp)
 add_executable(linux-shorts-pthreads-paralle-mutex src/pthreads/parralle-mutex.cpp)
