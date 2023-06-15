@@ -6,9 +6,9 @@ enable_testing()
 
 
 add_executable(linux-shorts main.cpp)
-add_executable(linux-shorts-select-socket-server src/select/select-socket-server.cpp)
 add_executable(linux-shorts-select-wait-std-in src/select/wait-std-in.cpp)
 add_executable(linux-shorts-sockets-client-002 src/sockets/client-002.cpp)
+add_executable(linux-shorts-sockets-server-003 src/sockets/server-003.cpp)
 add_executable(linux-shorts-sockets-server-002 src/sockets/server-002.cpp)
 add_executable(linux-shorts-sockets-client src/sockets/client.cpp)
 add_executable(linux-shorts-pthreads-parralle-cancel src/pthreads/parralle-cancel.cpp)
